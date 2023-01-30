@@ -167,3 +167,98 @@ window.addEventListener('keydown', (event) => {
     closeModal()
   }
 })
+
+// oтслеживание кнопки Add to cart
+window.addEventListener('click', function (event) {
+  if (event.target.classList.contains('addToCart')) {
+    let book = event.target.closest('.book')
+    addBookToCart(book)
+  }
+})
+
+// формирование карточки и добавление ее в корзину
+const cartListWrap = document.querySelector('.cartListWrapper')
+
+function addBookToCart(book) {
+  const orderBook = {
+    id: book.dataset.id,
+    imgSrc: book.querySelector('.image').getAttribute('src'),
+    author: book.querySelector('.author').innerText,
+    title: book.querySelector('.title').innerText,
+    price: book.querySelector('.price').innerText,
+  }
+  // проверяем есть ли такая книга в корзине
+  const itemInCart = cartListWrap.querySelector(`[data-id = "${orderBook.id}"]`)
+  // если есть
+  if (itemInCart) {
+    const amountEl = itemInCart.querySelector('.bookAmount')
+    amountEl.innerText = parseInt(amountEl.innerText) + 1
+  } else {
+    let orderCard = `<div class ='orderCard' data-id = '${orderBook.id}'>
+      <img class='orderImg' src='${orderBook.imgSrc}'>
+      <div class='orderContent'>
+      <h6 class = 'orderBookAuthor'> ${orderBook.author}</h6>
+      <h4 class = 'orderBookTitle'>${orderBook.title}</h4>
+      <p>
+      <span>$</span>
+      <span class = 'orderBookPrice'>${orderBook.price}</span>
+      <span>x</span>
+      <span class = 'bookAmount'>1 </span></p>
+      </div>
+      <button class='deleteItemFromCart myBtn'>&times</button></div>`
+    cartListWrap.insertAdjacentHTML('afterbegin', orderCard)
+  }
+  // пересчитываем корзину
+  calcTotalPrice()
+  // отображение статуса корзины
+  toggleCartStatus()
+
+  // обработчик для удаления книги из корзины
+
+  cartListWrap.addEventListener('click', function (event) {
+    if (event.target.closest('.deleteItemFromCart')) {
+      removeBookFromCart()
+      toggleCartStatus()
+    }
+  })
+}
+
+// функция для удаления товара из корзины
+function removeBookFromCart() {
+  event.target.closest('.orderCard').remove()
+  calcTotalPrice()
+}
+
+// показывает/прячет статус корзины
+function toggleCartStatus() {
+  let cartListCounter = document.querySelector('.cartListWrapper')
+
+  let cartEmptyStatus = document.querySelector('.cartEmpty')
+
+  let confirmOrder = document.querySelector('.orderBtn')
+
+  if (cartListCounter.children.length > 0) {
+    cartEmptyStatus.style.display = 'none'
+    confirmOrder.style.display = 'block'
+  } else {
+    cartEmptyStatus.style.display = 'block'
+    confirmOrder.style.display = 'none'
+  }
+}
+// считает общую стоимость товаров
+
+function calcTotalPrice() {
+  const cartList = document.querySelector('.cartList')
+  const cartItems = cartList.querySelectorAll('.orderCard')
+  let totalPriceEl = document.querySelector('.cartTotalPrice')
+
+  let totalPrice = 0
+
+  cartItems.forEach((el) => {
+    const amountEl = el.querySelector('.bookAmount').innerText
+    const priceEl = el.querySelector('.orderBookPrice').innerText
+    const currentPrice = parseInt(amountEl) * parseInt(priceEl)
+    totalPrice += currentPrice
+  })
+  totalPriceEl.innerText = totalPrice
+}
