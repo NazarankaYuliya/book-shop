@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="formStyle.css">
+    <title>Order</title>
+</head>
+
+<body>
+    <header class="header">
+        <img class="headerImg" src="../../images/readers.jpeg">
+    </header>
+    <div class="container">
+        <h1 class="formTitle"> Please fill order form</h1>
+        <div class="innerContainer">
+            <div class="cart">
+                <h2 class="cartTitle">Cart summary</h2>
+                <div class="cartTotal">
+                    <p>Total: $<span class="cartTotalPrice">0</span></p>
+                </div>
+            </div>
+            <form action="#">
+                <fieldset class="personalData">
+                    <legend>Delivery Information</legend>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name='name' class="valid" required minlength="4">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name='surname' class="valid" required minlength="5">
+
+                    <label for="street">Street</label>
+                    <input type="text" id="street" name='street' class="valid" required minlength="5">
+                    <label for="houseNumber">House number</label>
+                    <input type="number" id="houseNumber" name='houseNumber' class="valid" required min="1">
+                    <label for="flatNumber">Flat number</label>
+                    <input type="text" id="flatNumber" name='flatNumber' class="valid" required>
+                    <label for="deliveryDate">Delivery date</label>
+                    <input type="date" id="deliveryDate" name='deliveryDate' class="valid" required>
+                </fieldset>
+                <fieldset class="paymentInfo">
+                    <legend>Choose payment method</legend>
+                    <div>
+                        <input type="radio" id="cash" name='payment' class="valid" required>
+                        <label for="cash">Cash</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="card" name='payment' class="valid" required>
+                        <label for="card">Card</label>
+                    </div>
+                </fieldset>
+                <fieldset class="giftsChoose">
+                    <legend>Choose 2 gifts</legend>
+                    <div>
+                        <input type="checkbox" id="pack" name='gifts'>
+                        <label for="pack">Pack as a gift</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="postcard" name='gifts'>
+                        <label for="postcard">Add postcard</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="discount" name='gifts'>
+                        <label for="discount">Provide 2% discount to the next time</label>
+                    </div>
+                    <div>
+
+                        <input type="checkbox" id="pen" name='gifts'>
+                        <label for="pen">Branded pen or pencil</label>
+                    </div>
+                </fieldset>
+                <button type="submit" class="submitFormBtn" disabled>Confirm order</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
