@@ -262,3 +262,43 @@ function calcTotalPrice() {
   })
   totalPriceEl.innerText = totalPrice
 }
+
+// --- dragg and drop
+
+const dropZone = document.querySelector('.cart')
+let dragged = null
+
+const dragOver = function (event) {
+  event.preventDefault()
+}
+const dragEnter = function (event) {
+  event.preventDefault()
+}
+const dragLeave = function (event) {}
+function dragDrop(event) {
+  this.classList.remove('hovered')
+  let book = dragged.closest('.book')
+  addBookToCart(book)
+}
+
+dropZone.addEventListener('dragover', dragOver)
+dropZone.addEventListener('dragenter', dragEnter)
+dropZone.addEventListener('dragleave', dragLeave)
+dropZone.addEventListener('drop', dragDrop)
+
+window.addEventListener('dragstart', function (event) {
+  if (event.target.classList.contains('image')) {
+    event.target.classList.add('drag')
+    dragged = event.target
+    const cart = this.document.querySelector('.cart')
+    cart.classList.add('hovered')
+  }
+})
+
+window.addEventListener('dragend', function (event) {
+  if (event.target.classList.contains('image')) {
+    event.target.classList.remove('drag')
+    const cart = this.document.querySelector('.cart')
+    cart.classList.remove('hovered')
+  }
+})

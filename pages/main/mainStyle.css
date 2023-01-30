@@ -232,3 +232,13 @@ body {
   font-weight: 500;
   padding: 30px;
 }
+
+/* drag and drop*/
+
+.hovered {
+  border-color: #587e76;
+}
+
+.drag {
+  opacity: 0.5;
+}
