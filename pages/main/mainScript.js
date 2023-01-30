@@ -40,7 +40,8 @@ cartTotal.classList.add('cartTotal')
 cartTotal.innerHTML = '<p>Total: $<span class ="cartTotalPrice">0</span></p>'
 cartList.append(cartTotal)
 
-let orderBtn = document.createElement('button')
+let orderBtn = document.createElement('a')
+orderBtn.href = '../form/index.html'
 orderBtn.classList.add('orderBtn', 'myBtn')
 orderBtn.innerText = 'Confirm order'
 cartList.append(orderBtn)
