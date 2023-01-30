@@ -124,3 +124,46 @@ function showBook(data) {
 
   catalogContent.append(fragment)
 }
+
+// --- создание модального окна---
+
+let modal = document.createElement('div')
+modal.classList.add('modal')
+container.append(modal)
+
+let modalEl = document.querySelector('.modal')
+
+// --- функция открытия модального окна ---
+
+function openModal(title, description) {
+  modalEl.classList.add('modalShow')
+  document.body.classList.add('stop-scrolling')
+
+  modalEl.innerHTML = `<div class='modalCard'>
+<h3 class = 'modalTitle'>${title}</h3>
+<p class ='modalDescription'>${description}</p>
+<button type="button" class="modalBtnClose myBtn">Close</button>
+</div>
+`
+  const btnClose = document.querySelector('.modalBtnClose')
+  btnClose.addEventListener('click', closeModal)
+}
+
+// функции закрывающие модальное окно
+// кликом на close
+function closeModal() {
+  modalEl.classList.remove('modalShow')
+  document.body.classList.remove('stop-scrolling')
+}
+// кликом вне модального окна
+window.addEventListener('click', (event) => {
+  if (event.target === modalEl) {
+    closeModal()
+  }
+})
+// кликом на кнопку esc
+window.addEventListener('keydown', (event) => {
+  if (event.code === 'Escape') {
+    closeModal()
+  }
+})
