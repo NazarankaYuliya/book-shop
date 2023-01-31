@@ -1,19 +1,20 @@
+const outerContainer = document.querySelector('.outerContainer')
 // --- create header ---
-
 let header = document.createElement('header')
 header.classList.add('header')
 header.insertAdjacentHTML(
   'afterbegin',
   '<img class ="headerImg" src = "../../images/readers.jpeg"><h1 class ="headerTitle">Book & Shop</h1>'
 )
-document.body.append(header)
+outerContainer.append(header)
 
 //--- create container ---
 
 let div = document.createElement('div')
 div.classList.add('container')
-document.body.append(div)
+outerContainer.append(div)
 let container = document.querySelector('.container')
+
 // create Cart with title, order card and button
 
 let cart = document.createElement('div')
@@ -29,7 +30,8 @@ cartList.classList.add('cartList', 'stikyCart')
 
 let cartEmpty = document.createElement('div')
 cartEmpty.classList.add('cartEmpty')
-cartEmpty.innerText = 'Your cart is empty'
+cartEmpty.innerHTML =
+  'Your cart is empty <br/><img class = "dropImg" src = "../../images/drag&drop.png">'
 cartList.append(cartEmpty)
 const cartListWrapper = document.createElement('div')
 cartListWrapper.classList.add('cartListWrapper')
@@ -200,7 +202,7 @@ function addBookToCart(book) {
       <div class='orderContent'>
       <h6 class = 'orderBookAuthor'> ${orderBook.author}</h6>
       <h4 class = 'orderBookTitle'>${orderBook.title}</h4>
-      <p>
+      <p class='oneBookTotal'>
       <span>$</span>
       <span class = 'orderBookPrice'>${orderBook.price}</span>
       <span>x</span>
@@ -302,4 +304,12 @@ window.addEventListener('dragend', function (event) {
     const cart = this.document.querySelector('.cart')
     cart.classList.remove('hovered')
   }
+})
+
+const confirmOrderBtn = document.querySelector('.orderBtn')
+confirmOrderBtn.addEventListener('click', function () {
+  const ItemsInCart = document.querySelector('.cartListWrapper').innerHTML
+  const total = document.querySelector('.cartTotal').outerHTML
+  localStorage.setItem('book', ItemsInCart)
+  localStorage.setItem('total', total)
 })
