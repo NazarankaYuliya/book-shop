@@ -31,7 +31,7 @@ cartList.classList.add('cartList', 'stikyCart')
 let cartEmpty = document.createElement('div')
 cartEmpty.classList.add('cartEmpty')
 cartEmpty.innerHTML =
-  'Your cart is empty <br/><img class = "dropImg" src = "../../images/drag&drop.png">'
+  'Your cart is empty <br/><img class = "dropImg" src = "../../images/dragdrop.png">'
 cartList.append(cartEmpty)
 const cartListWrapper = document.createElement('div')
 cartListWrapper.classList.add('cartListWrapper')
