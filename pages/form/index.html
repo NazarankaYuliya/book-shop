@@ -19,35 +19,38 @@
         <div class="innerContainer">
             <div class="cart">
                 <h2 class="cartTitle">Cart summary</h2>
-                <div class="cartTotal">
-                    <p>Total: $<span class="cartTotalPrice">0</span></p>
-                </div>
             </div>
             <form action="#">
                 <fieldset class="personalData">
                     <legend>Delivery Information</legend>
                     <label for="name">Name</label>
-                    <input type="text" id="name" name='name' class="valid" required minlength="4">
+                    <input type="text" id="name" name='name' required>
+                    <div class="error"></div>
                     <label for="surname">Surname</label>
-                    <input type="text" id="surname" name='surname' class="valid" required minlength="5">
+                    <input type="text" id="surname" name='surname' required>
+                    <div class="error"></div>
 
                     <label for="street">Street</label>
-                    <input type="text" id="street" name='street' class="valid" required minlength="5">
+                    <input type="text" id="street" name='street' required>
+                    <div class="error"></div>
                     <label for="houseNumber">House number</label>
-                    <input type="number" id="houseNumber" name='houseNumber' class="valid" required min="1">
+                    <input type="number" id="houseNumber" name='houseNumber' required>
+                    <div class="error"></div>
                     <label for="flatNumber">Flat number</label>
-                    <input type="text" id="flatNumber" name='flatNumber' class="valid" required>
+                    <input type="text" id="flatNumber" name='flatNumber' required>
+                    <div class="error"></div>
                     <label for="deliveryDate">Delivery date</label>
-                    <input type="date" id="deliveryDate" name='deliveryDate' class="valid" required>
+                    <input type="date" id="deliveryDate" name='deliveryDate' required>
+                    <div class="error"></div>
                 </fieldset>
                 <fieldset class="paymentInfo">
                     <legend>Choose payment method</legend>
                     <div>
-                        <input type="radio" id="cash" name='payment' class="valid" required>
+                        <input type="radio" id="cash" name='payment' value="cash">
                         <label for="cash">Cash</label>
                     </div>
                     <div>
-                        <input type="radio" id="card" name='payment' class="valid" required>
+                        <input type="radio" id="card" name='payment' value="card">
                         <label for="card">Card</label>
                     </div>
                 </fieldset>
@@ -75,6 +78,7 @@
             </form>
         </div>
     </div>
+    <script src="form.js"></script>
 </body>
 
 </html>
