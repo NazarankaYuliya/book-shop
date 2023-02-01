@@ -36,13 +36,13 @@ for (let input of personalData) {
     let check
     switch (rule) {
       case 'name':
-        check = /^[a-zA-Z]{4,}$/.test(value)
+        check = /^[а-яА-ЯёЁa-zA-Z]{4,}$/.test(value)
         break
       case 'surname':
         check = /^[а-яА-ЯёЁa-zA-Z]{5,}$/.test(value)
         break
       case 'street':
-        check = /^[a-zA-Z0-9]{5,}$/.test(value)
+        check = /^[а-яА-ЯёЁa-zA-Z0-9\s]{5,}$/.test(value)
         break
       case 'houseNumber':
         check = /^[1-9]+[0-9]*$/.test(value)
@@ -104,3 +104,53 @@ function isFormValid() {
     submitFormBtn.disabled = true
   }
 }
+
+// summarize form information
+
+const form = document.querySelector('form')
+
+function getFormValue() {
+  event.preventDefault()
+
+  let values = {}
+  values.name = form.querySelector('[name="name"]').value
+  values.surname = form.querySelector('[name="surname"]').value
+  values.street = form.querySelector('[name="street"]').value
+  values.houseNumber = form.querySelector('[name="houseNumber"]').value
+  values.flatNumber = form.querySelector('[name="flatNumber"]').value
+  values.deliveryDate = form.querySelector('[name="deliveryDate"]').value
+  values.payment = form.querySelector('[name="payment"]:checked').value
+
+  let gifts = form.querySelectorAll('[name="gifts"]:checked'),
+    selectedGifts = []
+
+  gifts.forEach((el) => {
+    let label = document.querySelector(`label[for="${el.id}"]`)
+    selectedGifts.push(label.innerText)
+  })
+  values.gifts = selectedGifts
+
+  fillModalInfo(values)
+}
+
+function fillModalInfo(arg) {
+  let modalTitle = document.querySelector('.modalTitle')
+  modalTitle.innerText = 'Your Order is Confirmed!'
+
+  let modalDescription = document.querySelector('.modalDescription')
+
+  modalDescription.innerHTML = `<h4>Hello, ${arg.name} ${arg.surname}, </h4>
+  <p>Thanks for placing your order with us. Below are the details of your order.</p>
+  <h4>Delivery adress: ${arg.street} str. ${arg.houseNumber}, apt. ${arg.flatNumber} </h4>
+  <h4> Delivery date: ${arg.deliveryDate} </h4>
+  <h4>Payment method: ${arg.payment} </h4>
+  <h4>Your order:</h4><div class='modalOrderCard'>${order}</div> <h4>Your gifts: ${arg.gifts}</h4> ${total}`
+}
+
+function openModal() {
+  modalEl.classList.add('modalShow')
+  document.body.classList.add('stop-scrolling')
+}
+
+form.addEventListener('submit', openModal)
+form.addEventListener('submit', getFormValue)
