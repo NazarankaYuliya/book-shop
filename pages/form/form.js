@@ -146,7 +146,7 @@ function fillModalInfo(arg) {
   <h4>Payment method: ${arg.payment} </h4>
   <h4>Your order:</h4><div class='modalOrderCard'>${order}</div> <h4>Your gifts: ${arg.gifts}</h4> ${total}`
 }
-
+let modalEl = document.querySelector('.modal')
 function openModal() {
   modalEl.classList.add('modalShow')
   document.body.classList.add('stop-scrolling')
