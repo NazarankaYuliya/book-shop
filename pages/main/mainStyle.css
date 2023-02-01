@@ -47,6 +47,25 @@ body {
   border-top-right-radius: 5px;
 }
 
+footer {
+  height: 10%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  background-color: #587e76;
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  padding: 15px;
+}
+
+.logoGithub {
+  width: 35px;
+}
+
 .container {
   height: auto;
   display: flex;
@@ -54,8 +73,6 @@ body {
   justify-content: space-between;
   column-gap: 10px;
   padding: 30px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   background-color: #587e76;
 }
 .cart {
@@ -152,15 +169,14 @@ body {
 }
 .myBtn {
   margin: 5px;
-  padding: 3px;
-  border: 1px solid #587e76;
-  background-color: #eaece5;
-  color: #4f3222;
+  padding: 5px;
+  background-color: #587e76;
+  color: #fff;
   cursor: pointer;
   border-radius: 3px;
 }
 .myBtn:hover {
-  background-color: #96ceb4;
+  background-color: #54a792;
 }
 
 .modal {
@@ -205,15 +221,6 @@ body {
   line-height: 1.5;
 }
 
-.modalBtnClose {
-  padding: 5px;
-  margin: 10px;
-  align-self: center;
-  background-color: #96ceb4;
-}
-.modalBtnClose:hover {
-  background-color: #588c7e;
-}
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
@@ -235,8 +242,10 @@ body {
   justify-content: space-between;
 }
 .deleteItemFromCart {
-  font-size: 20px;
+  font-size: 25px;
   height: 10%;
+  background-color: #eaece5;
+  color: #587e76;
 }
 .cartTotal {
   font-size: 20px;

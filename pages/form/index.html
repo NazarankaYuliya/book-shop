@@ -11,86 +11,92 @@
 </head>
 
 <body>
-    <header class="header">
-        <img class="headerImg" src="../../images/readers.jpeg">
-    </header>
-    <div class="container">
-        <h1 class="formTitle"> Please fill order form</h1>
-        <div class="innerContainer">
-            <div class="cart">
-                <h2 class="cartTitle">Cart summary</h2>
+    <div class="outerContainer">
+        <header class="header">
+            <img class="headerImg" src="../../images/readers.jpeg">
+        </header>
+        <div class="container">
+            <h1 class="formTitle"> Please fill order form</h1>
+            <div class="innerContainer">
+                <div class="cart">
+                    <h2 class="cartTitle">Cart summary</h2>
+                </div>
+                <form action="#">
+                    <fieldset class="personalData">
+                        <legend>Delivery Information</legend>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name='name' required>
+                        <div class="error"></div>
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name='surname' required>
+                        <div class="error"></div>
+
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name='street' required>
+                        <div class="error"></div>
+                        <label for="houseNumber">House number</label>
+                        <input type="number" id="houseNumber" name='houseNumber' required>
+                        <div class="error"></div>
+                        <label for="flatNumber">Flat number</label>
+                        <input type="text" id="flatNumber" name='flatNumber' required>
+                        <div class="error"></div>
+                        <label for="deliveryDate">Delivery date</label>
+                        <input type="date" id="deliveryDate" name='deliveryDate' required>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset class="paymentInfo">
+                        <legend>Choose payment method</legend>
+                        <div>
+                            <input type="radio" id="cash" name='payment' value="cash">
+                            <label for="cash">Cash</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="card" name='payment' value="card">
+                            <label for="card">Card</label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="giftsChoose">
+                        <legend>Choose 2 gifts</legend>
+                        <div>
+                            <input type="checkbox" id="pack" name='gifts'>
+                            <label for="pack">Pack as a gift</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="postcard" name='gifts'>
+                            <label for="postcard">Add postcard</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="discount" name='gifts'>
+                            <label for="discount">Provide 2% discount to the next time</label>
+                        </div>
+                        <div>
+
+                            <input type="checkbox" id="pen" name='gifts'>
+                            <label for="pen">Branded pen or pencil</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="submitFormBtn" disabled>Confirm order</button>
+                </form>
             </div>
-            <form action="#">
-                <fieldset class="personalData">
-                    <legend>Delivery Information</legend>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name='name' required>
-                    <div class="error"></div>
-                    <label for="surname">Surname</label>
-                    <input type="text" id="surname" name='surname' required>
-                    <div class="error"></div>
+            <div class="modal">
+                <div class="modalCard">
+                    <h3 class="modalTitle">
 
-                    <label for="street">Street</label>
-                    <input type="text" id="street" name='street' required>
-                    <div class="error"></div>
-                    <label for="houseNumber">House number</label>
-                    <input type="number" id="houseNumber" name='houseNumber' required>
-                    <div class="error"></div>
-                    <label for="flatNumber">Flat number</label>
-                    <input type="text" id="flatNumber" name='flatNumber' required>
-                    <div class="error"></div>
-                    <label for="deliveryDate">Delivery date</label>
-                    <input type="date" id="deliveryDate" name='deliveryDate' required>
-                    <div class="error"></div>
-                </fieldset>
-                <fieldset class="paymentInfo">
-                    <legend>Choose payment method</legend>
-                    <div>
-                        <input type="radio" id="cash" name='payment' value="cash">
-                        <label for="cash">Cash</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="card" name='payment' value="card">
-                        <label for="card">Card</label>
-                    </div>
-                </fieldset>
-                <fieldset class="giftsChoose">
-                    <legend>Choose 2 gifts</legend>
-                    <div>
-                        <input type="checkbox" id="pack" name='gifts'>
-                        <label for="pack">Pack as a gift</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="postcard" name='gifts'>
-                        <label for="postcard">Add postcard</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="discount" name='gifts'>
-                        <label for="discount">Provide 2% discount to the next time</label>
-                    </div>
-                    <div>
-
-                        <input type="checkbox" id="pen" name='gifts'>
-                        <label for="pen">Branded pen or pencil</label>
-                    </div>
-                </fieldset>
-                <button type="submit" class="submitFormBtn" disabled>Confirm order</button>
-            </form>
-        </div>
-        <div class="modal">
-            <div class="modalCard">
-                <h3 class="modalTitle">
-
-                </h3>
-                <div class="modalDescription"></div>
-                <a href="../main/index.html" class="modalBtnClose myBtn">&#10003;</a>
+                    </h3>
+                    <div class="modalDescription"></div>
+                    <a href="../main/index.html" class="modalBtnClose myBtn">&#10003;</a>
+                </div>
             </div>
+
+
         </div>
 
-
+        <footer class="footer"><a class="linkGithub" href="https://github.com/NazarankaYuliya" target="_blank"><img
+                    class="logoGithub" src="../../images/github-mark-white.png"></a>
+            <h4 class="footerName">Yuliya Nazaranka</h4>
+        </footer>
+        <script src="form.js"></script>
     </div>
-    </div>
-    <script src="form.js"></script>
 </body>
 
 </html>

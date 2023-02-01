@@ -15,18 +15,37 @@ div.classList.add('container')
 outerContainer.append(div)
 let container = document.querySelector('.container')
 
+// create footer
+let footer = document.createElement('footer')
+footer.classList.add('footer')
+let footerName = document.createElement('h4')
+footerName.classList.add('footerName')
+footerName.innerText = 'Yuliya Nazaranka'
+let logoGithub = document.createElement('img')
+logoGithub.classList.add('logoGithub')
+logoGithub.src = '../../images/github-mark-white.png'
+
+let linkGithub = document.createElement('a')
+linkGithub.classList.add('linkGithub')
+linkGithub.href = 'https://github.com/NazarankaYuliya'
+linkGithub.target = '_blank'
+
+linkGithub.append(logoGithub)
+footer.append(linkGithub, footerName)
+outerContainer.append(footer)
+
 // create Cart with title, order card and button
 
 let cart = document.createElement('div')
 cart.classList.add('cart')
 
+let cartList = document.createElement('div')
+cartList.classList.add('cartList', 'stikyCart')
+
 let cartTitle = document.createElement('h2')
 cartTitle.classList.add('cartTitle')
 cartTitle.innerText = 'Cart'
-cart.append(cartTitle)
-
-let cartList = document.createElement('div')
-cartList.classList.add('cartList', 'stikyCart')
+cartList.append(cartTitle)
 
 let cartEmpty = document.createElement('div')
 cartEmpty.classList.add('cartEmpty')
@@ -118,9 +137,7 @@ function showBook(data) {
     buttons.append(showMore, addToBag)
     bookContent.append(buttons)
 
-    showMore.addEventListener('click', () =>
-      openModal(data[el].title, data[el].description)
-    )
+    showMore.addEventListener('click', () => openModal(data[el]))
 
     fragment.append(book)
   }
@@ -138,13 +155,13 @@ let modalEl = document.querySelector('.modal')
 
 // --- функция открытия модального окна ---
 
-function openModal(title, description) {
+function openModal(el) {
   modalEl.classList.add('modalShow')
   document.body.classList.add('stop-scrolling')
 
   modalEl.innerHTML = `<div class='modalCard'>
-<h3 class = 'modalTitle'>${title}</h3>
-<p class ='modalDescription'>${description}</p>
+<h3 class = 'modalTitle'>${el.title}</h3>
+<p class ='modalDescription'>${el.description}</p>
 <button type="button" class="modalBtnClose myBtn">Close</button>
 </div>
 `
