@@ -294,7 +294,9 @@ const dragOver = function (event) {
 const dragEnter = function (event) {
   event.preventDefault()
 }
-const dragLeave = function (event) {}
+const dragLeave = function (event) {
+  event.preventDefault()
+}
 function dragDrop(event) {
   this.classList.remove('hovered')
   let book = dragged.closest('.book')
