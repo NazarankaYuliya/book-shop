@@ -21,7 +21,6 @@ if (date < 10) {
   date = '0' + date
 }
 let tomorrow = year + '-' + month + '-' + date
-console.log(tomorrow)
 // set tomorrow as a min delivery date
 let deliveryDate = document.getElementById('deliveryDate')
 deliveryDate.setAttribute('min', tomorrow)
