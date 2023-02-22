@@ -13,15 +13,15 @@ today.setDate(today.getDate() + 1)
 
 let year = today.getFullYear()
 let month = today.getMonth() + 1
-if (month.length !== 2) {
+if (month < 10) {
   month = '0' + month
 }
 let date = today.getDate()
-if (date.length !== 2) {
+if (date < 10) {
   date = '0' + date
 }
 let tomorrow = year + '-' + month + '-' + date
-
+console.log(tomorrow)
 // set tomorrow as a min delivery date
 let deliveryDate = document.getElementById('deliveryDate')
 deliveryDate.setAttribute('min', tomorrow)
