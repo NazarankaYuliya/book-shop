@@ -1,7 +1,5 @@
 const outerContainer = document.querySelector('.outer-container')
 
-// --- create header ---
-
 const header = document.createElement('header')
 header.classList.add('header')
 header.insertAdjacentHTML(
@@ -10,13 +8,9 @@ header.insertAdjacentHTML(
 )
 outerContainer.append(header)
 
-//--- create container ---
-
 const container = document.createElement('div')
 container.classList.add('container')
 outerContainer.append(container)
-
-// create footer
 
 const footer = document.createElement('footer')
 footer.classList.add('footer')
@@ -37,8 +31,6 @@ linkGithub.target = '_blank'
 linkGithub.append(logoGithub)
 footer.append(linkGithub, footerName)
 outerContainer.append(footer)
-
-// create Cart with title, order card and button
 
 let cart = document.createElement('div')
 cart.classList.add('cart')
@@ -77,13 +69,9 @@ cartList.append(orderBtn)
 cart.append(cartList)
 container.append(cart)
 
-// --- create catalog content ---
-
 const catalogContent = document.createElement('div')
 catalogContent.classList.add('catalog-content')
 container.append(catalogContent)
-
-//--- доступ к json данным ---
 
 fetch('books.json')
   .then((response) => {
@@ -93,7 +81,6 @@ fetch('books.json')
     showBook(data)
   })
 
-// формирование карточки товара с данными
 function showBook(data) {
   let fragment = new DocumentFragment()
 
@@ -154,7 +141,7 @@ function showBook(data) {
   catalogContent.append(fragment)
 }
 
-let modal = document.createElement('div')
+const modal = document.createElement('div')
 modal.classList.add('modal')
 container.append(modal)
 
@@ -197,8 +184,6 @@ window.addEventListener('click', function (event) {
     addBookToCart(book)
   }
 })
-
-// const cartListWrap = document.querySelector('.cart-list-wrapper')
 
 function addBookToCart(book) {
   const orderBook = {
@@ -275,8 +260,6 @@ function calcTotalPrice() {
   })
   totalPriceEl.innerText = totalPrice
 }
-
-// --- dragg and drop
 
 const dropZone = document.querySelector('.cart')
 let dragged = null
