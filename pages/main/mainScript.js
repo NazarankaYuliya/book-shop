@@ -1,32 +1,36 @@
-const outerContainer = document.querySelector('.outerContainer')
+const outerContainer = document.querySelector('.outer-container')
+
 // --- create header ---
-let header = document.createElement('header')
+
+const header = document.createElement('header')
 header.classList.add('header')
 header.insertAdjacentHTML(
   'afterbegin',
-  '<img class ="headerImg" src = "../../images/readers.jpeg"><h1 class ="headerTitle">Book & Shop</h1>'
+  '<img class ="header-img" src = "../../images/readers.jpeg"><h1 class ="header-title">Book & Shop</h1>'
 )
 outerContainer.append(header)
 
 //--- create container ---
 
-let div = document.createElement('div')
-div.classList.add('container')
-outerContainer.append(div)
-let container = document.querySelector('.container')
+const container = document.createElement('div')
+container.classList.add('container')
+outerContainer.append(container)
 
 // create footer
-let footer = document.createElement('footer')
+
+const footer = document.createElement('footer')
 footer.classList.add('footer')
-let footerName = document.createElement('h4')
-footerName.classList.add('footerName')
+
+const footerName = document.createElement('h4')
+footerName.classList.add('footer-name')
 footerName.innerText = 'Yuliya Nazaranka'
-let logoGithub = document.createElement('img')
-logoGithub.classList.add('logoGithub')
+
+const logoGithub = document.createElement('img')
+logoGithub.classList.add('logo-github')
 logoGithub.src = '../../images/github-mark-white.png'
 
-let linkGithub = document.createElement('a')
-linkGithub.classList.add('linkGithub')
+const linkGithub = document.createElement('a')
+linkGithub.classList.add('link-github')
 linkGithub.href = 'https://github.com/NazarankaYuliya'
 linkGithub.target = '_blank'
 
@@ -40,38 +44,43 @@ let cart = document.createElement('div')
 cart.classList.add('cart')
 
 let cartList = document.createElement('div')
-cartList.classList.add('cartList', 'stikyCart')
+cartList.classList.add('cart-list', 'stiky-cart')
 
-let cartTitle = document.createElement('h2')
-cartTitle.classList.add('cartTitle')
+const cartTitle = document.createElement('h2')
+cartTitle.classList.add('cart-title')
 cartTitle.innerText = 'Cart'
 cartList.append(cartTitle)
 
-let cartEmpty = document.createElement('div')
-cartEmpty.classList.add('cartEmpty')
-cartEmpty.innerHTML =
+const cartEmpty = document.createElement('div')
+cartEmpty.classList.add('cart-empty')
+cartEmpty.insertAdjacentHTML(
+  'afterbegin',
   'Your cart is empty <br/><img class = "dropImg" src = "../../images/dragdrop.png">'
+)
+
 cartList.append(cartEmpty)
-const cartListWrapper = document.createElement('div')
-cartListWrapper.classList.add('cartListWrapper')
+let cartListWrapper = document.createElement('div')
+cartListWrapper.classList.add('cart-list-wrapper')
 cartList.append(cartListWrapper)
 
 let cartTotal = document.createElement('div')
-cartTotal.classList.add('cartTotal')
-cartTotal.innerHTML = '<p>Total: $<span class ="cartTotalPrice">0</span></p>'
+cartTotal.classList.add('cart-total')
+cartTotal.innerHTML = '<p>Total: $<span class ="cart-total-price">0</span></p>'
+
 cartList.append(cartTotal)
 
-let orderBtn = document.createElement('a')
+const orderBtn = document.createElement('a')
 orderBtn.href = '../form/index.html'
-orderBtn.classList.add('orderBtn', 'myBtn')
+orderBtn.classList.add('order-btn', 'my-btn')
 orderBtn.innerText = 'Confirm order'
 cartList.append(orderBtn)
 cart.append(cartList)
 container.append(cart)
 
 // --- create catalog content ---
-let catalogContent = document.createElement('div')
-catalogContent.classList.add('catalogContent')
+
+const catalogContent = document.createElement('div')
+catalogContent.classList.add('catalog-content')
 container.append(catalogContent)
 
 //--- доступ к json данным ---
@@ -87,52 +96,52 @@ fetch('books.json')
 // формирование карточки товара с данными
 function showBook(data) {
   let fragment = new DocumentFragment()
-  let bookEl = document.querySelector('.catalogContent')
 
   for (let el = 0; el < data.length; el++) {
-    let book = document.createElement('div')
+    const book = document.createElement('div')
     book.classList.add('book')
     book.setAttribute('data-id', el + 1)
 
-    let bookImg = document.createElement('div')
-    bookImg.classList.add('bookImg')
+    const bookImg = document.createElement('div')
+    bookImg.classList.add('book-img')
     book.append(bookImg)
 
-    let image = document.createElement('img')
+    const image = document.createElement('img')
     image.classList.add('image')
     image.setAttribute('draggable', 'true')
     image.src = data[el].imageLink
     bookImg.append(image)
 
-    let bookContent = document.createElement('div')
-    bookContent.classList.add('bookContent')
+    const bookContent = document.createElement('div')
+    bookContent.classList.add('book-content')
     book.append(bookContent)
 
-    let author = document.createElement('h5')
+    const author = document.createElement('h5')
     author.classList.add('author')
     author.innerText = data[el].author
     bookContent.append(author)
 
-    let title = document.createElement('h3')
+    const title = document.createElement('h3')
     title.classList.add('title')
     title.innerText = data[el].title
     bookContent.append(title)
 
-    let price = document.createElement('div')
-    price.classList.add('bookPrice')
+    const price = document.createElement('div')
+    price.classList.add('book-price')
     price.innerHTML = `<p>Price: $ <span class='price'>${data[el].price}</span></p>`
     bookContent.append(price)
-    let showMore = document.createElement('button')
-    showMore.classList.add('showMore', 'myBtn')
+
+    const showMore = document.createElement('button')
+    showMore.classList.add('show-more', 'my-btn')
     showMore.innerText = 'Show More'
     bookContent.append(showMore)
 
-    let addToBag = document.createElement('button')
-    addToBag.classList.add('addToCart', 'myBtn')
+    const addToBag = document.createElement('button')
+    addToBag.classList.add('add-to-cart', 'my-btn')
     addToBag.innerText = 'Add To Cart'
     bookContent.append(addToBag)
 
-    let buttons = document.createElement('div')
+    const buttons = document.createElement('div')
     buttons.classList.add('buttons')
     buttons.append(showMore, addToBag)
     bookContent.append(buttons)
@@ -145,59 +154,51 @@ function showBook(data) {
   catalogContent.append(fragment)
 }
 
-// --- создание модального окна---
-
 let modal = document.createElement('div')
 modal.classList.add('modal')
 container.append(modal)
 
-let modalEl = document.querySelector('.modal')
-
-// --- функция открытия модального окна ---
-
 function openModal(el) {
-  modalEl.classList.add('modalShow')
+  modal.classList.add('modal-show')
   document.body.classList.add('stop-scrolling')
 
-  modalEl.innerHTML = `<div class='modalCard'>
-<h3 class = 'modalTitle'>${el.title}</h3>
-<p class ='modalDescription'>${el.description}</p>
-<button type="button" class="modalBtnClose myBtn">Close</button>
-</div>
-`
-  const btnClose = document.querySelector('.modalBtnClose')
+  modal.innerHTML = `
+  <div class='modal-card'>
+      <h3 class = 'modal-title'>${el.title}</h3>
+      <p class ='modal-description'>${el.description}</p>
+      <button type="button" class="modal-btn-close my-btn">Close</button>
+  </div>
+  `
+
+  const btnClose = document.querySelector('.modal-btn-close')
   btnClose.addEventListener('click', closeModal)
 }
 
-// функции закрывающие модальное окно
-// кликом на close
 function closeModal() {
-  modalEl.classList.remove('modalShow')
+  modal.classList.remove('modal-show')
   document.body.classList.remove('stop-scrolling')
 }
-// кликом вне модального окна
+
 window.addEventListener('click', (event) => {
-  if (event.target === modalEl) {
+  if (event.target === modal) {
     closeModal()
   }
 })
-// кликом на кнопку esc
+
 window.addEventListener('keydown', (event) => {
   if (event.code === 'Escape') {
     closeModal()
   }
 })
 
-// oтслеживание кнопки Add to cart
 window.addEventListener('click', function (event) {
-  if (event.target.classList.contains('addToCart')) {
+  if (event.target.classList.contains('add-to-cart')) {
     let book = event.target.closest('.book')
     addBookToCart(book)
   }
 })
 
-// формирование карточки и добавление ее в корзину
-const cartListWrap = document.querySelector('.cartListWrapper')
+// const cartListWrap = document.querySelector('.cart-list-wrapper')
 
 function addBookToCart(book) {
   const orderBook = {
@@ -207,76 +208,68 @@ function addBookToCart(book) {
     title: book.querySelector('.title').innerText,
     price: book.querySelector('.price').innerText,
   }
-  // проверяем есть ли такая книга в корзине
-  const itemInCart = cartListWrap.querySelector(`[data-id = "${orderBook.id}"]`)
-  // если есть
+
+  const itemInCart = cartListWrapper.querySelector(
+    `[data-id = "${orderBook.id}"]`
+  )
+
   if (itemInCart) {
-    const amountEl = itemInCart.querySelector('.bookAmount')
+    const amountEl = itemInCart.querySelector('.book-amount')
     amountEl.innerText = parseInt(amountEl.innerText) + 1
   } else {
-    let orderCard = `<div class ='orderCard' data-id = '${orderBook.id}'>
-      <img class='orderImg' src='${orderBook.imgSrc}'>
-      <div class='orderContent'>
-      <h6 class = 'orderBookAuthor'> ${orderBook.author}</h6>
-      <h4 class = 'orderBookTitle'>${orderBook.title}</h4>
-      <p class='oneBookTotal'>
-      <span>$</span>
-      <span class = 'orderBookPrice'>${orderBook.price}</span>
-      <span>x</span>
-      <span class = 'bookAmount'>1 </span></p>
-      </div>
-      <button class='deleteItemFromCart myBtn'>&times</button></div>`
-    cartListWrap.insertAdjacentHTML('afterbegin', orderCard)
+    let orderCard = `
+    <div class ='order-card' data-id = '${orderBook.id}'>
+      <img class='order-img' src='${orderBook.imgSrc}'>
+        <div class='order-content'>
+          <h6 class = 'order-book-author'> ${orderBook.author}</h6>
+          <h4 class = 'order-book-title'>${orderBook.title}</h4>
+          <p class='one-book-total'>
+            <span>$</span>
+            <span class = 'order-book-price'>${orderBook.price}</span>
+            <span>x</span>
+            <span class = 'book-amount'>1 </span>
+          </p>
+        </div>
+      <button class='delete-item-from-cart my-btn'>&times</button>
+    </div>`
+
+    cartListWrapper.insertAdjacentHTML('afterbegin', orderCard)
   }
-  // пересчитываем корзину
+
   calcTotalPrice()
-  // отображение статуса корзины
   toggleCartStatus()
-
-  // обработчик для удаления книги из корзины
-
-  cartListWrap.addEventListener('click', function (event) {
-    if (event.target.closest('.deleteItemFromCart')) {
-      removeBookFromCart()
-      toggleCartStatus()
-    }
-  })
 }
 
-// функция для удаления товара из корзины
+cartListWrapper.addEventListener('click', function (event) {
+  if (event.target.closest('.delete-item-from-cart')) {
+    removeBookFromCart()
+    toggleCartStatus()
+  }
+})
+
 function removeBookFromCart() {
-  event.target.closest('.orderCard').remove()
+  event.target.closest('.order-card').remove()
   calcTotalPrice()
 }
 
-// показывает/прячет статус корзины
 function toggleCartStatus() {
-  let cartListCounter = document.querySelector('.cartListWrapper')
-
-  let cartEmptyStatus = document.querySelector('.cartEmpty')
-
-  let confirmOrder = document.querySelector('.orderBtn')
-
-  if (cartListCounter.children.length > 0) {
-    cartEmptyStatus.style.display = 'none'
-    confirmOrder.style.display = 'block'
+  if (cartListWrapper.children.length > 0) {
+    cartEmpty.style.display = 'none'
+    orderBtn.style.display = 'block'
   } else {
-    cartEmptyStatus.style.display = 'block'
-    confirmOrder.style.display = 'none'
+    cartEmpty.style.display = 'block'
+    orderBtn.style.display = 'none'
   }
 }
-// считает общую стоимость товаров
 
 function calcTotalPrice() {
-  const cartList = document.querySelector('.cartList')
-  const cartItems = cartList.querySelectorAll('.orderCard')
-  let totalPriceEl = document.querySelector('.cartTotalPrice')
-
+  const cartItems = cartList.querySelectorAll('.order-card')
+  let totalPriceEl = document.querySelector('.cart-total-price')
   let totalPrice = 0
 
   cartItems.forEach((el) => {
-    const amountEl = el.querySelector('.bookAmount').innerText
-    const priceEl = el.querySelector('.orderBookPrice').innerText
+    const amountEl = el.querySelector('.book-amount').innerText
+    const priceEl = el.querySelector('.order-book-price').innerText
     const currentPrice = parseInt(amountEl) * parseInt(priceEl)
     totalPrice += currentPrice
   })
@@ -297,7 +290,7 @@ const dragEnter = function (event) {
 const dragLeave = function (event) {
   event.preventDefault()
 }
-function dragDrop(event) {
+const dragDrop = function (event) {
   this.classList.remove('hovered')
   let book = dragged.closest('.book')
   addBookToCart(book)
@@ -312,7 +305,6 @@ window.addEventListener('dragstart', function (event) {
   if (event.target.classList.contains('image')) {
     event.target.classList.add('drag')
     dragged = event.target
-    const cart = this.document.querySelector('.cart')
     cart.classList.add('hovered')
   }
 })
@@ -320,15 +312,14 @@ window.addEventListener('dragstart', function (event) {
 window.addEventListener('dragend', function (event) {
   if (event.target.classList.contains('image')) {
     event.target.classList.remove('drag')
-    const cart = this.document.querySelector('.cart')
     cart.classList.remove('hovered')
   }
 })
 
-const confirmOrderBtn = document.querySelector('.orderBtn')
+const confirmOrderBtn = document.querySelector('.order-btn')
 confirmOrderBtn.addEventListener('click', function () {
-  const ItemsInCart = document.querySelector('.cartListWrapper').innerHTML
-  const total = document.querySelector('.cartTotal').outerHTML
-  localStorage.setItem('book', ItemsInCart)
+  const itemsInCart = document.querySelector('.cart-list-wrapper').innerHTML
+  let total = document.querySelector('.cart-total').outerHTML
+  localStorage.setItem('book', itemsInCart)
   localStorage.setItem('total', total)
 })

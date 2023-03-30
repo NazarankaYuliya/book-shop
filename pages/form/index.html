@@ -11,22 +11,24 @@
 </head>
 
 <body>
-    <div class="outerContainer">
+    <div class="outer-container">
         <header class="header">
-            <img class="headerImg" src="../../images/readers.jpeg">
+            <img class="header-img" src="../../images/readers.jpeg" alt="People">
         </header>
-        <div class="container">
-            <h1 class="formTitle"> Please fill order form</h1>
-            <div class="innerContainer">
+        <main class="container">
+            <h1 class="form-title"> Please fill order form</h1>
+            <div class="inner-container">
                 <div class="cart">
-                    <h2 class="cartTitle">Cart summary</h2>
+                    <h2 class="cart-title">Cart summary</h2>
                 </div>
                 <form action="#">
-                    <fieldset class="personalData">
+                    <fieldset class="personal-data">
                         <legend>Delivery Information</legend>
+
                         <label for="name">Name</label>
                         <input type="text" id="name" name='name' required>
                         <div class="error"></div>
+
                         <label for="surname">Surname</label>
                         <input type="text" id="surname" name='surname' required>
                         <div class="error"></div>
@@ -34,69 +36,77 @@
                         <label for="street">Street</label>
                         <input type="text" id="street" name='street' required>
                         <div class="error"></div>
-                        <label for="houseNumber">House number</label>
-                        <input type="number" id="houseNumber" name='houseNumber' required>
+
+                        <label for="house-number">House number</label>
+                        <input type="number" id="house-number" name='house-number' required>
                         <div class="error"></div>
-                        <label for="flatNumber">Flat number</label>
-                        <input type="text" id="flatNumber" name='flatNumber' required>
+
+                        <label for="flat-number">Flat number</label>
+                        <input type="text" id="flat-number" name='flat-number' required>
                         <div class="error"></div>
-                        <label for="deliveryDate">Delivery date</label>
-                        <input type="date" id="deliveryDate" name='deliveryDate' required>
+
+                        <label for="delivery-date">Delivery date</label>
+                        <input type="date" id="delivery-date" name='delivery-date' required>
                         <div class="error"></div>
                     </fieldset>
-                    <fieldset class="paymentInfo">
+
+                    <fieldset class="payment-info">
                         <legend>Choose payment method</legend>
                         <div>
                             <input type="radio" id="cash" name='payment' value="cash">
                             <label for="cash">Cash</label>
                         </div>
+
                         <div>
                             <input type="radio" id="card" name='payment' value="card">
                             <label for="card">Card</label>
                         </div>
                     </fieldset>
-                    <fieldset class="giftsChoose">
+
+                    <fieldset class="gifts-choose">
                         <legend>Choose 2 gifts</legend>
+
                         <div>
                             <input type="checkbox" id="pack" name='gifts'>
                             <label for="pack">Pack as a gift</label>
                         </div>
+
                         <div>
                             <input type="checkbox" id="postcard" name='gifts'>
                             <label for="postcard">Add postcard</label>
                         </div>
+
                         <div>
                             <input type="checkbox" id="discount" name='gifts'>
                             <label for="discount">Provide 2% discount to the next time</label>
                         </div>
-                        <div>
 
+                        <div>
                             <input type="checkbox" id="pen" name='gifts'>
                             <label for="pen">Branded pen or pencil</label>
                         </div>
                     </fieldset>
-                    <button type="submit" class="submitFormBtn" disabled>Confirm order</button>
+
+                    <button type="submit" class="submit-form-btn" disabled>Confirm order</button>
                 </form>
             </div>
             <div class="modal">
-                <div class="modalCard">
-                    <h3 class="modalTitle">
-
-                    </h3>
-                    <div class="modalDescription"></div>
-                    <a href="../main/index.html" class="modalBtnClose myBtn">&#10003;</a>
+                <div class="modal-card">
+                    <h3 class="modal-title"></h3>
+                    <div class="modal-description"></div>
+                    <a href="../main/index.html" class="modal-btn-close my-btn">&#10003;</a>
                 </div>
             </div>
+        </main>
 
-
-        </div>
-
-        <footer class="footer"><a class="linkGithub" href="https://github.com/NazarankaYuliya" target="_blank"><img
-                    class="logoGithub" src="../../images/github-mark-white.png"></a>
-            <h4 class="footerName">Yuliya Nazaranka</h4>
+        <footer class="footer">
+            <a class="link-github" href="https://github.com/NazarankaYuliya" target="_blank">
+                <img class="logo-github" src="../../images/github-mark-white.png" alt="Github logo">
+            </a>
+            <h4 class="footer-name">Yuliya Nazaranka</h4>
         </footer>
-        <script src="form.js"></script>
     </div>
+    <script src="form.js"></script>
 </body>
 
 </html>
