@@ -1,0 +1,284 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #190000;
+  background-color: #f5f5f5;
+}
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.header-img {
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.header-title {
+  height: 20%;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  color: #eaece5;
+  background-color: #587e76;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  height: 10%;
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #587e76;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.logo-github {
+  width: 35px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  column-gap: 10px;
+  height: auto;
+  padding: 30px;
+  background-color: #587e76;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 40%;
+  height: auto;
+  min-height: 400px;
+  padding: 20px;
+  background-color: #eaece5;
+  border: 3px dashed transparent;
+  border-radius: 5px;
+}
+
+.stiky-cart {
+  position: sticky;
+  top: 30px;
+}
+
+.cart-title {
+  text-align: center;
+  color: #808080;
+}
+
+.cart-empty {
+  width: 100%;
+  min-height: 60px;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  color: #808080;
+  border-radius: 5px;
+}
+
+.drop-img {
+  width: 20%;
+  opacity: 0.5;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+.cart-list-wrapper {
+  height: auto;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.order-btn {
+  display: none;
+  width: 50%;
+  text-align: center;
+}
+
+.catalog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  column-gap: 50px;
+  row-gap: 50px;
+  width: 60%;
+  background-color: #eaece5;
+  border-radius: 5px;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+  width: 100%;
+  max-height: 300px;
+  padding: 20px;
+}
+
+.book-img {
+  width: 50%;
+  text-align: center;
+  cursor: all-scroll;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 10px #808080;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.my-btn {
+  margin: 5px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #587e76;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.my-btn:hover {
+  background-color: #54a792;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  width: 40%;
+  height: 40%;
+  padding: 16px;
+  text-align: center;
+  background-color: #eaece5;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  padding: 15px;
+}
+
+.modal-description {
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  word-spacing: 1px;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+  padding: 10px;
+}
+
+.order-img {
+  width: 40%;
+}
+
+.order-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.delete-item-from-cart {
+  height: 10%;
+  font-size: 25px;
+  color: #587e76;
+  background-color: #eaece5;
+}
+
+.cart-total {
+  padding: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hovered {
+  border-color: #587e76;
+}
+
+.drag {
+  opacity: 0.5;
+}

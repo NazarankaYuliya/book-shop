@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="formStyle.css">
+    <title>Order</title>
+</head>
+
+<body>
+    <div class="outer-container">
+        <header class="header">
+            <img class="header-img" src="../../images/readers.jpeg" alt="People">
+        </header>
+        <main class="container">
+            <h1 class="form-title"> Please fill order form</h1>
+            <div class="inner-container">
+                <div class="cart">
+                    <h2 class="cart-title">Cart summary</h2>
+                </div>
+                <form action="#">
+                    <fieldset class="personal-data">
+                        <legend>Delivery Information</legend>
+
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name='name' required>
+                        <div class="error"></div>
+
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name='surname' required>
+                        <div class="error"></div>
+
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name='street' required>
+                        <div class="error"></div>
+
+                        <label for="house-number">House number</label>
+                        <input type="number" id="house-number" name='house-number' required>
+                        <div class="error"></div>
+
+                        <label for="flat-number">Flat number</label>
+                        <input type="text" id="flat-number" name='flat-number' required>
+                        <div class="error"></div>
+
+                        <label for="delivery-date">Delivery date</label>
+                        <input type="date" id="delivery-date" name='delivery-date' required>
+                        <div class="error"></div>
+                    </fieldset>
+
+                    <fieldset class="payment-info">
+                        <legend>Choose payment method</legend>
+                        <div>
+                            <input type="radio" id="cash" name='payment' value="cash">
+                            <label for="cash">Cash</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="card" name='payment' value="card">
+                            <label for="card">Card</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="gifts-choose">
+                        <legend>Choose 2 gifts</legend>
+
+                        <div>
+                            <input type="checkbox" id="pack" name='gifts'>
+                            <label for="pack">Pack as a gift</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="postcard" name='gifts'>
+                            <label for="postcard">Add postcard</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="discount" name='gifts'>
+                            <label for="discount">Provide 2% discount to the next time</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="pen" name='gifts'>
+                            <label for="pen">Branded pen or pencil</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="submit-form-btn" disabled>Confirm order</button>
+                </form>
+            </div>
+            <div class="modal">
+                <div class="modal-card">
+                    <h3 class="modal-title"></h3>
+                    <div class="modal-description"></div>
+                    <a href="../main/index.html" class="modal-btn-close my-btn">&#10003;</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <a class="link-github" href="https://github.com/NazarankaYuliya" target="_blank">
+                <img class="logo-github" src="../../images/github-mark-white.png" alt="Github logo">
+            </a>
+            <h4 class="footer-name">Yuliya Nazaranka</h4>
+        </footer>
+    </div>
+    <script src="form.js"></script>
+</body>
+
+</html>
